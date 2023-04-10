@@ -1,0 +1,34 @@
+<div style="display: flex; flex-direction: column;">
+ <form  style="display: flex; flex-direction: column; width: 50%;" #myform="ngForm" (ngSubmit)="onSubmit()">
+    <label for="brand">Brand:</label>
+    <input type="text" id="brand" name="brand" [(ngModel)]="brand" minlength="3" maxlength="10" required>
+    <label for="category">Category:</label>
+    <input type="text" id="category" name="category" [(ngModel)]="category" minlength="3" maxlength="10" required>
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" [(ngModel)]="title" minlength="3" maxlength="10" required>
+    <label for="price">Price:</label>
+    <input type="text" id="price" name="price" [(ngModel)]="price" minlength="3" maxlength="10" required>
+    <div *ngIf="myform.controls['brand'].invalid && myform.controls['brand'].touched">
+        <div *ngIf="myform.controls?.['brand']?.errors?.['required']">brand is required.</div>
+        <div *ngIf="myform.controls?.['brand']?.errors?.['minlength']">brand must be at least 2 characters long.</div>
+        <div *ngIf="myform.controls?.['brand']?.errors?.['maxlength']">brand cannot be more than 10 characters long.</div>
+    </div>
+    <div *ngIf="myform.controls['category'].invalid && myform.controls['category'].touched">
+        <div *ngIf="myform.controls?.['category']?.errors?.['required']">category is required.</div>
+        <div *ngIf="myform.controls?.['category']?.errors?.['minlength']">category must be at least 2 characters long.</div>
+        <div *ngIf="myform.controls?.['category']?.errors?.['maxlength']">category cannot be more than 10 characters long.</div>
+      </div>
+      <div *ngIf="myform.controls['title'].invalid && myform.controls['title'].touched">
+        <div *ngIf="myform.controls?.['title']?.errors?.['required']">title is required.</div>
+        <div *ngIf="myform.controls?.['title']?.errors?.['minlength']">title must be at least 2 characters long.</div>
+        <div *ngIf="myform.controls?.['title']?.errors?.['maxlength']">title cannot be more than 10 characters long.</div>
+      </div>
+      <div *ngIf="myform.controls['price'].invalid && myform.controls['price'].touched">
+        <div *ngIf="myform.controls?.['price']?.errors?.['required']">price is required.</div>
+        <div *ngIf="myform.controls?.['price']?.errors?.['minlength']">price must be at least 2 characters long.</div>
+        <div *ngIf="myform.controls?.['price']?.errors?.['maxlength']">price cannot be more than 10 characters long.</div>
+      </div>
+    <button [disabled]="!myform.form.valid" style="width: 20xp;" type="submit">Submit</button>
+ </form>
+ 
+</div>

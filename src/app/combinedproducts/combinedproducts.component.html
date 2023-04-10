@@ -1,0 +1,59 @@
+<div style="display: flex; flex-direction: row; justify-content: space-around;">
+    
+
+    <div style="display: flex; justify-content: center; background-color: blanchedalmond; height: 100%; width: 100%">
+        <div style="display: flex; padding: 10px; align-content: center; align-items: center; justify-content: center;">
+            <table >
+                <tr>
+                    <td>Sr</td>
+                    <td>image</td>
+                    <td>brand</td>
+                    <td>category</td>
+                    <td>title</td>
+                    <td>price</td>
+                    <td>Edit/Delete/View</td>
+                </tr>
+                <tr *ngFor="let products of allproducts.products">
+                    <ng-template #mymodal let-modal>
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="modal-basic-title">Bootstrap Modal</h4>
+                          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                            <span aria-hidden="true">×</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                            <form #myForm="ngForm" (ngSubmit)="onSubmit(products.id)">
+                                <label for="name">Title:</label>
+                                <input type="text" id="title" name="title" [(ngModel)]="titleinput" ngModel required>                                              
+                                
+                              
+                                <button type="submit" [disabled]="myForm.invalid">Submit</button>
+                              </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+                        </div>
+                    </ng-template>
+                    
+                    <td>{{products.id}}</td>
+                    <td><img style="height: 20px; width: 20px;" src="{{products.thumbnail}}"/></td>
+                    <td>{{products.brand}}</td>
+                    <td>{{products.category}}</td>
+                    <td>{{products.title}}</td>
+                    <td>{{products.price}}$</td>
+                    <td>
+                        <label class="switch">
+                          <input type="checkbox" [defaultChecked]="true" (change)="settoggle($event,products.id)" >
+                          <span class="slider round"></span>
+                        </label>
+                        <button style="margin-left: 10px;" (click)="open(mymodal)">Edit</button>
+                    </td>   
+               </tr>
+            </table>
+        
+        </div>
+    </div>
+    <div style="display: flex; justify-content: center; background-color: cornflowerblue;  height: 100%; width: 100%">
+        <app-filteredproducts></app-filteredproducts>
+    </div>
+</div>

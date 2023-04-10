@@ -1,0 +1,19 @@
+<div style="display: flex; flex-direction: column; width: 100%; height: 70%; background-color: aliceblue; justify-content: center; align-items: center;">
+    <h4>Uppercase</h4>
+    <p>{{ 'pakistan' | uppercase }}</p>
+    <h4>Lowercase</h4>
+    <p>{{ 'PAKISTAN' | lowercase }}</p>
+    <h4>Applying currency</h4>
+    <p>{{ '1000' | currency: 'EUR' }}</p>
+    <h4>Date Pipe:</h4>
+    <p>{{ '5/12/2023' | date:'fullDate' }}</p>
+    <h4>Percent Pipe:</h4>
+    <p style="color:#e2df5b">{{ '60' | percent }}</p>
+    <h4>Custom pipe to short text</h4>
+    <p>{{ 'This is a long text that needs to be shortened' | shortentextcustompipe: 15 }}</p>
+    <h4>Returning Colored html texts with div</h4>
+    <div [innerHTML]="'hello'|htmlpipe:5">
+    </div>
+    
+   
+</div>

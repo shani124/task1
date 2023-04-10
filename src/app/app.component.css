@@ -1,0 +1,17 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 50px;
+    background-color: cadetblue;
+    box-shadow: 10px;
+    border-radius: 5px;
+}
+.button{
+    margin-top: 5px;
+    height: 40px;
+    padding: 5px;
+    border-radius: 15px;
+    margin-left: 10px;
+    border-color: aliceblue;
+}

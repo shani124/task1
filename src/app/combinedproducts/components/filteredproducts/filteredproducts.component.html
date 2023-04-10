@@ -1,0 +1,22 @@
+
+<div style="display: flex; padding: 10px; align-content: center; align-items: center; justify-content: center;">
+    <table >
+        <tr>
+            <td>Sr</td>
+            <td>image</td>
+            <td>brand</td>
+            <td>category</td>
+            <td>title</td>
+            <td>price</td>
+        </tr>
+        <tr *ngFor="let products of data$.products">
+            <td>{{products.id}}</td>
+            <td><img style="height: 20px; width: 20px;" src="{{products.thumbnail}}"/></td>
+            <td>{{products.brand}}</td>
+            <td>{{products.category}}</td>
+            <td>{{products.title}}</td>
+            <td>{{products.price}}$</td>
+       </tr>
+    </table>
+
+</div>

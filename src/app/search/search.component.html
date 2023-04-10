@@ -1,0 +1,16 @@
+
+
+<div style="display: flex; flex-direction: column; justify-content: flex-start; ">
+    <div>
+        <app-searchbox [allproducts]="allproducts" (searchedproducts)="childtoparent($event)"></app-searchbox>
+    </div>
+    <div>
+        <div style="display: flex; flex-wrap: wrap; margin: 20px;">
+           <div *ngFor="let product of filteredproducts" style="margin: 20px; display: flex;flex-direction: column; justify-content: center; align-items: center; align-content: center;  height: 300px; width: 220px; background-color: whitesmoke;">
+                <img style="height: 200px; width: 220px;" src="{{product.thumbnail}}"/>
+                <p style="color: black; font-style: italic;">{{product.title|uppercase}}</p>
+                <p style="color: black;">{{product.price|currency:'EUR'}}</p>
+           </div>     
+        </div>
+    </div>    
+</div>
