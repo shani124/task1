@@ -1,19 +1,18 @@
-import { Component } from '@angular/core';
-import { Product } from '../DTO/product';
+import { Injectable } from '@angular/core';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
+import { Product } from '../DTO/product';
 
-@Component({
-  selector: 'app-productcreate',
-  templateUrl: './productcreate.component.html',
-  styleUrls: ['./productcreate.component.css']
+@Injectable({
+  providedIn: 'root'
 })
-export class ProductcreateComponent {
+export class NgxIndexedDBServiceService {
+
   
   constructor(private dbService: NgxIndexedDBService) {
     
-    this.initializeData();
-
-}
+      this.initializeData();
+  
+  }
 
   async initializeData() {
     const data:Product[]=[

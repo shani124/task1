@@ -17,6 +17,29 @@ import { ShortentextcustompipePipe } from './pipesutil/shortentextcustompipe.pip
 import { HtmlpipePipe } from './pipesutil/htmlpipe/htmlpipe.pipe';
 import { JqueryModule } from './jquery/jquery.module';
 import { HtmlchallengeModule } from './htmlchallenge/htmlchallenge.module';
+import { DBConfig, NgxIndexedDBModule } from 'ngx-indexed-db';
+import { NgxIndexedDBServiceService } from './services/ngx-indexed-dbservice.service';
+
+const dbConfig:DBConfig = {
+  name: 'myDb',
+  version: 1,
+  objectStoresMeta: [{
+    store: 'products',
+    storeConfig: { keyPath: 'id', autoIncrement: true },
+    storeSchema: [
+      { name: 'title', keypath: 'title', options: { unique: false } },
+      { name: 'description', keypath: 'description', options: { unique: false } },
+      { name: 'price', keypath: 'price', options: { unique: false } },
+      { name: 'discountPercentage', keypath: 'discountPercentage', options: { unique: false } },
+      { name: 'rating', keypath: 'rating', options: { unique: false } },
+      { name: 'stock', keypath: 'stock', options: { unique: false } },
+      { name: 'brand', keypath: 'brand', options: { unique: false } },
+      { name: 'category', keypath: 'category', options: { unique: false } },
+      { name: 'thumbnail', keypath: 'thumbnail', options: { unique: false } },
+      { name: 'images', keypath: 'images', options: { unique: false } },
+    ]
+  }]
+};
 
 @NgModule({
   declarations: [
@@ -36,9 +59,10 @@ import { HtmlchallengeModule } from './htmlchallenge/htmlchallenge.module';
     SearchModule,
     PipeModule,
     JqueryModule,
-    HtmlchallengeModule
+    HtmlchallengeModule,
+    NgxIndexedDBModule.forRoot(dbConfig),
   ],
-  providers: [],
+  providers: [NgxIndexedDBServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
